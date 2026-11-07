@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Streetview Capture</title>
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+    <header>
+        <h1>Streetview Capture</h1>
+        <p id="page">Connecting to this page…</p>
+        <p id="status" role="status">Waiting for a Street View document request.</p>
+        <strong id="coordinates"></strong>
+        <div class="controls">
+            <button id="start" type="button" disabled>Start</button>
+            <button id="stop" type="button" disabled>Stop</button>
+            <button id="refresh" type="button">Refresh</button>
+            <button id="copy" type="button" disabled>Copy Maps link</button>
+            <button id="download" type="button" disabled>Download JSON</button>
+        </div>
+    </header>
+    <main>
+        <p id="empty">Reload this page or start a new round. Its captured location will appear here.</p>
+        <iframe id="map" title="Google Maps at the captured location" referrerpolicy="no-referrer" allowfullscreen hidden></iframe>
+    </main>
+    <details>
+        <summary>Captured request</summary>
+        <pre id="output">No request captured for this page yet.</pre>
+    </details>
+    <script src="panel.js"></script>
+</body>
+</html>

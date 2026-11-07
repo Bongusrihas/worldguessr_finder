@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "geoguessr",
+  "version": "0.0.3",
+  "description": "View captured Street View coordinates in a map beside the current page.",
+  "minimum_chrome_version": "116",
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Open Streetview Capture beside this page" },
+  "side_panel": { "default_path": "panel.html" },
+  "devtools_page": "devtools.html",
+  "permissions": ["webRequest", "storage", "sidePanel"],
+  "host_permissions": ["<all_urls>"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; frame-src https://www.google.com;"
+  }
+}
