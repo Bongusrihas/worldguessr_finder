@@ -12,3 +12,4 @@ new requests. Refreshing or reopening the panel preserves its Start/Stop state.
 Each tab has independent controls.
 
 **working for worldguessr**
+**Account will be banned 100%**
