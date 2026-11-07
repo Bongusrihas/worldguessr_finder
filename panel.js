@@ -14,8 +14,6 @@ function render(state) {
     currentCapture = state?.displayed || null;
     document.getElementById("start").disabled = controlsBusy || !!state?.monitoring;
     document.getElementById("stop").disabled = controlsBusy || !state?.monitoring;
-    document.getElementById("copy").disabled = !currentCapture;
-    document.getElementById("download").disabled = !currentCapture;
     document.getElementById("empty").hidden = !!currentCapture;
     map.hidden = !currentCapture;
     document.getElementById("coordinates").textContent = currentCapture?.coordinates || "";
@@ -70,24 +68,7 @@ async function setMonitoring(monitoring) {
 }
 document.getElementById("start").addEventListener("click", () => setMonitoring(true));
 document.getElementById("stop").addEventListener("click", () => setMonitoring(false));
-document.getElementById("copy").addEventListener("click", async () => {
-    if (!currentCapture) return;
-    try {
-        await navigator.clipboard.writeText(currentCapture.mapsUrl);
-        status.textContent = "Maps link copied.";
-    } catch {
-        status.textContent = "Could not copy the Maps link.";
-    }
-});
-document.getElementById("download").addEventListener("click", () => {
-    if (!currentCapture) return;
-    const url = URL.createObjectURL(new Blob([JSON.stringify(currentCapture, null, 2)], { type: "application/json" }));
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "streetview-latest.json";
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-});
+
 
 (async () => {
     const specified = new URLSearchParams(location.search).get("tabId");
