@@ -12,4 +12,6 @@ new requests. Refreshing or reopening the panel preserves its Start/Stop state.
 Each tab has independent controls.
 
 **working for worldguessr**
-**Account will be banned 100%**
+
+**Account will be banned if you keep exactly. so try to keep >100km's away always and if possible keep in another country near by**
+
